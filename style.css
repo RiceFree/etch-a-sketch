@@ -1,0 +1,16 @@
+.cell {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 0.1px;
+}
+
+.gridStyle {
+    margin: 1em 30%;
+    display: grid;
+    grid-template-columns: repeat(16, 21px);
+}
+
+.trail {
+    background-color: blueviolet;
+}
