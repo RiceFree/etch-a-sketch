@@ -4,8 +4,9 @@ container.classList.add('gridStyle');
 
 
 let sqrNum = 16;
-let cellDim = 700 / sqrNum;
-contStyle.gridTemplateColumns = `repeat(${sqrNum},${cellDim + cellDim * 0.01}px)`;
+let cellDim = 700 / sqrNum - 0.2;
+contStyle.gridTemplateColumns = `repeat(${sqrNum},${cellDim + 0.2}px)`;
+contStyle.gridTemplateRows = `repeat(${sqrNum},${cellDim + 0.2}px)`;
 
 for (let i = 0; i < (sqrNum * sqrNum); i++) {
   let thisCell = document.createElement("div");
@@ -29,11 +30,12 @@ const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', (e) => {
 sqrNum = prompt("How many squares per side?");
 if (!sqrNum) return;
-cellDim = 700 / sqrNum;
+cellDim = 700 / sqrNum - 0.2;
 
 contStyle.gridTemplateColumns = '';
 container.classList.add('gridStyle');
-contStyle.gridTemplateColumns = `repeat(${sqrNum},${cellDim + cellDim * 0.03}px)`;
+contStyle.gridTemplateColumns = `repeat(${sqrNum},${cellDim + 0.2}px)`;
+contStyle.gridTemplateRows = `repeat(${sqrNum},${cellDim + 0.2}px)`;
 
 const allCells = document.querySelectorAll('.cell');
 allCells.forEach((div) => {
