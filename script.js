@@ -20,7 +20,19 @@ const cells = document.querySelectorAll('.cell');
 cells.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
         let thisCell = event.currentTarget;
-        thisCell.classList.add('trail');
+        if (!thisCell.style.backgroundColor) {
+        let r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let rgbString = r + ', ' + g + ', ' + b;
+        thisCell.style.cssText = `background-color: rgb(${rgbString});`;
+        } else if (!thisCell.style.opacity) {
+         thisCell.style.opacity = '0.9';
+        } else {
+          oldOp = thisCell.style.opacity;
+          newOp = oldOp - 0.1;
+          thisCell.style.opacity = newOp;
+        }
     });
 });
 
