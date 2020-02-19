@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 218, 252);
+    background-image: url(symphony.png)
 }
 
 
@@ -17,7 +17,7 @@ body {
 }
 
 .gridStyle {
-    margin: 50px auto;
+    margin: 50px auto 25px auto;
     display: grid;
 }
 
@@ -26,7 +26,7 @@ body {
 }
 
 h1 {
-    color: coral;
+    color: rgb(131, 1, 131);
     text-align: center;
 }
 
@@ -34,12 +34,29 @@ h1 {
     width: 850px;
     height: 850px;
     border-style: double;
-    border-color: coral;
-    border-radius: 10%;
+    border-color: rgb(129, 0, 155);
+    border-radius: 5%;
     margin: auto;
-    background-color: cornsilk;
+    background-image: url(retina_wood.png);
 }
 
 button {
-    margin: 1px 100px;
+    height: 35px;
+    width: 90px;
+    border-style: outset;
+    border-color: blueviolet;
+    border-radius: 20px;
+    background-image: linear-gradient(purple, blueviolet);
+    color: white;
+    font-size: 15px;
+}
+
+#btnDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.hovered {
+    border-style: inset;
+    background-image: linear-gradient(blueviolet, purple);
 }

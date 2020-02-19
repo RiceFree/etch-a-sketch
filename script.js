@@ -17,27 +17,42 @@ for (let i = 0; i < (sqrNum * sqrNum); i++) {
 
 const cells = document.querySelectorAll('.cell');
 
+
 cells.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
         let thisCell = event.currentTarget;
         if (!thisCell.style.backgroundColor) {
-        let r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
-        let g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
-        let b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
-        let rgbString = r + ', ' + g + ', ' + b;
-        thisCell.style.cssText = `background-color: rgb(${rgbString});`;
-        } else if (!thisCell.style.opacity) {
-         thisCell.style.opacity = '0.9';
+        let h = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let l = 50;
+
+        let hslString = h + ',100%, ' + l + '%';
+        thisCell.setAttribute(`data-color`, h);
+        thisCell.setAttribute(`data-light`, l);
+
+        thisCell.style.cssText = `background-color: hsl(${hslString});`;
+
         } else {
-          oldOp = thisCell.style.opacity;
-          newOp = oldOp - 0.1;
-          thisCell.style.opacity = newOp;
-        }
+          let newL = thisCell.getAttribute('data-light');
+          newL -= 5
+          thisCell.setAttribute('data-light', newL);
+          let h = thisCell.getAttribute('data-color');
+          let hslString = h + ', 100%, ' + newL + '%';
+
+          thisCell.style.cssText = `background-color: hsl(${hslString})`;
+        };
     });
 });
 
 
 const resetBtn = document.querySelector('#reset');
+
+resetBtn.addEventListener('mouseover', (e) => {
+  resetBtn.classList.add('hovered');
+});
+
+resetBtn.addEventListener('mouseout', (e) => {
+  resetBtn.classList.remove('hovered');
+});
 
 resetBtn.addEventListener('click', (e) => {
 sqrNum = prompt("How many squares per side?");
@@ -64,7 +79,25 @@ const cells = document.querySelectorAll('.cell');
 cells.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
       let thisCell = event.currentTarget;
-      thisCell.classList.add('trail');
+      if (!thisCell.style.backgroundColor) {
+        let h = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let l = 50;
+
+        let hslString = h + ',100%, ' + l + '%';
+        thisCell.setAttribute(`data-color`, h);
+        thisCell.setAttribute(`data-light`, l);
+
+        thisCell.style.cssText = `background-color: hsl(${hslString});`;
+
+        } else {
+          let newL = thisCell.getAttribute('data-light');
+          newL -= 5
+          thisCell.setAttribute('data-light', newL);
+          let h = thisCell.getAttribute('data-color');
+          let hslString = h + ', 100%, ' + newL + '%';
+
+          thisCell.style.cssText = `background-color: hsl(${hslString})`;
+        };
   });
 });
 });
