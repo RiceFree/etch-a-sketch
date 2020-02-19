@@ -22,7 +22,7 @@ cells.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
         let thisCell = event.currentTarget;
         if (!thisCell.style.backgroundColor) {
-        let h = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let h = Math.floor(Math.random() * (360 - 0 + 1) + 0);
         let l = 50;
 
         let hslString = h + ',100%, ' + l + '%';
@@ -80,7 +80,7 @@ cells.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
       let thisCell = event.currentTarget;
       if (!thisCell.style.backgroundColor) {
-        let h = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+        let h = Math.floor(Math.random() * (360 - 0 + 1) + 0);
         let l = 50;
 
         let hslString = h + ',100%, ' + l + '%';
